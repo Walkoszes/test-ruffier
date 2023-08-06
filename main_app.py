@@ -66,7 +66,7 @@ class SecondScreen(Screen):
         self.result_input = TextInput(text=" ")
         self.result_input.disabled = True
         self.button_continue = Button(text="Почати")
-        self.timer = Seconds(total=5, callback=self.timer_complete)
+        self.timer = Seconds(total=15, callback=self.timer_complete)
 
         main_layout = BoxLayout(orientation = "vertical")
         inputing_info = BoxLayout(orientation = "horizontal", size_hint=(None, 0.1), width="900", pos_hint={"x" : 0, "y": 0})
@@ -112,7 +112,7 @@ class ThirdScreen(Screen):
         super().__init__(name='third')
         instruction2 = Label(text = txt_sits)
         self.button_continue = Button(text = "Почати")
-        self.timer = Seconds(total=5, callback=self.timer_complete)
+        self.timer = Seconds(total=45, callback=self.timer_complete)
 
         main_layout = BoxLayout(orientation = "vertical")
         text_layout = BoxLayout(orientation = "vertical", size_hint=(None, 0.8), width="600", pos_hint={"x" : 0.2, "y": 0})
@@ -157,7 +157,7 @@ class ForthScreen(Screen):
         self.result_before_input.disabled = True
         self.result_after_input.disabled = True
         self.button_end = Button(text = "Почати")
-        self.timer = Seconds(total=5, callback=self.timer_middle)
+        self.timer = Seconds(total=15, callback=self.timer_middle)
 
         main_layout = BoxLayout(orientation = "vertical")
         information_giving = BoxLayout(orientation = "horizontal", padding = 30)
@@ -202,13 +202,13 @@ class ForthScreen(Screen):
             self.what_to_do.text = "Впишіть перший результат"
             self.button_end.text = "Чекайте 30 секунд"
             self.result_before_input.disabled = False
-            self.timer.restart(total=10, callback=self.timer_last_middle)
+            self.timer.restart(total=30, callback=self.timer_last_middle)
 
     def timer_last_middle(self):
         if self.button_end.text == "Чекайте 30 секунд":
             self.what_to_do.text = "Міряйте пульс"
             self.button_end.text = "Йде час"
-            self.timer.restart(total=5, callback=self.timer_complete)
+            self.timer.restart(total=15, callback=self.timer_complete)
 
     def timer_complete(self):
         self.button_end.text = "Продовжити"
